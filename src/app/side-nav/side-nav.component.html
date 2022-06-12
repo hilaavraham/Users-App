@@ -1,0 +1,9 @@
+
+<!-- <h4>List of users: </h4> -->
+<div
+ *ngFor= "let user of users"
+    class="list-group-item">
+    <button type="button" class="btn btn-outline-dark" (click)="onUserSelected(user)">
+         <span>{{user.username}}</span>
+    </button>
+</div>

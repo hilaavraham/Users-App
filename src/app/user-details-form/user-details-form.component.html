@@ -1,0 +1,31 @@
+<form [formGroup]="userDetailsForm">
+    <label for="name">name: </label>
+    <input id="name" type="text" formControlName="name" required>
+  
+    <label for="username">user name: </label>
+    <input id="username" type="text" formControlName="username">
+
+    <label for="email">email: </label>
+    <input id="email" type="text" formControlName="email">
+
+    <label for="phone">phone: </label>
+    <input id="phone" type="text" formControlName="phone">
+  
+    <div formGroupName="address">
+      <h2>Address</h2>
+  
+      <label for="street">Street: </label>
+      <input id="street" type="text" formControlName="street">
+      
+      <label for="suite">suite: </label>
+      <input id="suite" type="text" formControlName="suite">
+  
+      <label for="city">City: </label>
+      <input id="city" type="text" formControlName="city">
+
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="!userDetailsForm.valid" (click)="onSubmit()">Submit</button>
+    <button type="button" (click)="onCancel()"  class="btn btn-danger">Cancel</button>
+    
+  </form>

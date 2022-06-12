@@ -1,0 +1,20 @@
+
+<div class="card user-details">
+    <img class="card-img-top profile-img" src="../../assets//images/profile.jpg">
+    <div *ngIf="!isEdit">
+        <div class="card-body">
+            <h5 class="card-title">name: {{user.name}}</h5>
+            <div>username: {{user.username}}</div>
+            <div>email: {{user.email}}</div>
+            <div>address: {{user.address.street}} {{user.address.suite}}, {{user.address.city}}</div>
+            <div>phone: {{user.phone}}</div>
+        </div> 
+        <button type="button" class="btn btn-outline-success" (click)="isEdit = true"> Update </button>
+        <button type="button" class="btn btn-outline-danger" (click)="deleteUser(user)"> Delete </button>  
+    </div>
+    <div *ngIf="isEdit">
+        <user-details-form (submitEvent)="updateUser($event)" (cancelEvent)="cancelUpdate($event)" [isEditMode]="true" [user]="user"></user-details-form>
+    </div>
+</div>
+
+

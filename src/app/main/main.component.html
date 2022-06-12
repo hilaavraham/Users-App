@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="sidenav">
+        <side-nav [users]="users" [onUserSelected]="onUserSelected"></side-nav>
+    </div>
+    <div class="user-details" *ngIf="!isCreate">
+        <user-details [user]="selectedUser" class="user-details"></user-details>
+        <button class="add-user-btn btn btn-dark" (click)="isCreate = true">+</button>
+    </div>
+    <div class="user-details" *ngIf="isCreate">
+        <user-details-form (submitEvent)="createUser($event)" (cancelEvent)="cancelCreate($event)" [isEditMode]="false"></user-details-form>
+    </div>
+</div>
